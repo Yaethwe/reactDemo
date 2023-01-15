@@ -1,15 +1,7 @@
 import React from 'react';
+import Card from './Tools'
 
-class Item extends React.Component {
-  render(){
-    return (
-      <li>
-        {this.props.name},
-        ${this.props.price}
-      </li>
-    );
-  }
-}
+const Item = ({name, price}) => (<li>{name}, ${price}</li>)
 
 class AddForm extends React.Component {
   nameRef = React.createRef();
@@ -21,13 +13,29 @@ class AddForm extends React.Component {
 
     this.props.add(name, price);
   }
-  
+
   render(){
     return (
       <div>
         <input type="text" ref={this.nameRef} placeholder="name"></input>
         <input type="number" ref={this.priceRef} placeholder="price"></input>
         <button onClick={this.add}>Add</button>
+      </div>
+    )
+  }
+}
+
+//optimized code
+const Title = ({name}) => (
+  <h1>{name}</h1>
+)
+
+//normal code
+class Header extends React.Component {
+  render(){
+    return (
+      <div>
+        <Title name={this.props.name}/>
       </div>
     )
   }
@@ -59,9 +67,7 @@ class App extends React.Component {
   render(){
     return (
       <div>
-        <h1>
-          Hi Mom!
-        </h1>
+        <Header name="Hi Dad!"/>
         <ul>
           {
             this.state.items.map(i => {
@@ -76,6 +82,8 @@ class App extends React.Component {
           }
         </ul>
         <AddForm add={this.add}/>
+
+        <Card title="YeaeThawe" context="YeaeThawe is a Web Developer."/>
       </div>
     )
   }

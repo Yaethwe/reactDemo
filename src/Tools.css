@@ -1,0 +1,25 @@
+.card{
+    background-color: #191928;
+    color:#70a0f8;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 3px;
+    font-family: sans-serif;
+    width: 50vw;
+}
+
+.card h1{
+    border-bottom: 1px solid rgb(73, 73, 142);
+    text-shadow: 2px 1.5px 2px whitesmoke;
+}
+
+a{
+    color:#4886f9;
+    padding: 5px;
+}
+
+@media screen and (max-width:600px){
+    .card{
+        width:90vw;
+    }
+}
